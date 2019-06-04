@@ -18,14 +18,14 @@
 
 	gtag('config', 'UA-140783468-1', {
 		'page_title' : 'secondPage',
-		'page_path' : '/secondPage.html'
+		'page_path' : '/view/secondPage.html'
 	});
 </script>
 <script>
 	window.onload = function() {
 		document.getElementById("IndexPageBtn").addEventListener('click',
 				function() {
-					location.href = "/index.html";
+					location.href = "../index.html";
 				});
 	}
 </script>
@@ -34,31 +34,31 @@
 		//종료
 		if (event.data === 0) {
 			gtag('event', 'sampleVideoEnd', {
-				'event_category' : 'index/secondPage : sampleVideo',
+				'event_category' : '/view/secondPage : sampleVideo',
 				'event_label' : '샘플 비디오 영상 종료 이벤트 발생'
 			});
 			//재생
 		} else if (event.data === 1) {
 			gtag('event', 'sampleVideoPlay', {
-				'event_category' : 'index/secondPage : sampleVideo',
+				'event_category' : '/view/secondPage : sampleVideo',
 				'event_label' : '샘플 비디오 영상 재생 이벤트 발생'
 			});
 			//정지
 		} else if (event.data === 2) {
 			gtag('event', 'sampleVideoStop', {
-				'event_category' : 'index/secondPage : sampleVideo',
+				'event_category' : '/view/secondPage : sampleVideo',
 				'event_label' : '샘플 비디오 영상 정지 이벤트 발생'
 			});
 			//버퍼링
 		} else if (event.data === 3) {
 			gtag('event', 'sampleVideoBuffering', {
-				'event_category' : 'index/secondPage : sampleVideo',
+				'event_category' : '/view/secondPage : sampleVideo',
 				'event_label' : '샘플 비디오 영상 버퍼링 이벤트 발생'
 			});
 			//스킵
 		} else if (event.data === 5) {
 			gtag('event', 'sampleVideoSkip', {
-				'event_category' : 'index/secondPage : sampleVideo',
+				'event_category' : '/view/secondPage : sampleVideo',
 				'event_label' : '샘플 비디오 영상 스킵 이벤트 발생'
 			});
 		}

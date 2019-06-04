@@ -14,18 +14,18 @@
 
   gtag('config', 'UA-140783468-1' , {
 	  'page_title' : 'firstPage' ,
-	  'page_path' : '/firstPage.html'
+	  'page_path' : '/view/firstPage.html'
   });
 </script>
 <script>
 	window.onload = function() {
 			document.getElementById("IndexPageBtn").addEventListener('click', function() {
-				location.href = "/index.html";
+				location.href = "../index.html";
 			});
 			
 			document.getElementById("sampleBtnEvent").addEventListener('click', function() {
 				gtag('event', 'sampleBtnClick', {
-					  'event_category' : 'index/firstPage : sampleBtnClick',
+					  'event_category' : '/view/firstPage : sampleBtnClick',
 					  'event_label' : '샘플 버튼 이벤트 발생'
 				});
 				alert('이벤트 발생');
