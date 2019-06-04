@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>First Page</title>
+
+<script src="javascript/text"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140783468-1' , {
+	  'page_title' : 'firstPage' ,
+	  'page_path' : '/firstPage.html'
+  });
+</script>
+<script>
+	window.onload = function() {
+			document.getElementById("IndexPageBtn").addEventListener('click', function() {
+				location.href = "/index.html";
+			});
+			
+			document.getElementById("sampleBtnEvent").addEventListener('click', function() {
+				gtag('event', 'sampleBtnClick', {
+					  'event_category' : 'index/firstPage : sampleBtnClick',
+					  'event_label' : '샘플 버튼 이벤트 발생'
+				});
+				alert('이벤트 발생');
+			});
+	}
+</script>
+
+</head>
+<body>
+	<button id = "IndexPageBtn">index 페이지</button> <br>
+	<button id = "sampleBtnEvent" >버튼 이벤트 발생</button>
+</body>
+</html>

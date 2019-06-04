@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Second Page</title>
+
+<script src="javascript/text"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+	src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-140783468-1', {
+		'page_title' : 'secondPage',
+		'page_path' : '/secondPage.html'
+	});
+</script>
+<script>
+	window.onload = function() {
+		document.getElementById("IndexPageBtn").addEventListener('click',
+				function() {
+					location.href = "/index.html";
+				});
+	}
+</script>
+<script>
+	function onPlayerStateChange(event) {
+		//종료
+		if (event.data === 0) {
+			gtag('event', 'sampleVideoEnd', {
+				'event_category' : 'index/secondPage : sampleVideo',
+				'event_label' : '샘플 비디오 영상 종료 이벤트 발생'
+			});
+			//재생
+		} else if (event.data === 1) {
+			gtag('event', 'sampleVideoPlay', {
+				'event_category' : 'index/secondPage : sampleVideo',
+				'event_label' : '샘플 비디오 영상 재생 이벤트 발생'
+			});
+			//정지
+		} else if (event.data === 2) {
+			gtag('event', 'sampleVideoStop', {
+				'event_category' : 'index/secondPage : sampleVideo',
+				'event_label' : '샘플 비디오 영상 정지 이벤트 발생'
+			});
+			//버퍼링
+		} else if (event.data === 3) {
+			gtag('event', 'sampleVideoBuffering', {
+				'event_category' : 'index/secondPage : sampleVideo',
+				'event_label' : '샘플 비디오 영상 버퍼링 이벤트 발생'
+			});
+			//스킵
+		} else if (event.data === 5) {
+			gtag('event', 'sampleVideoSkip', {
+				'event_category' : 'index/secondPage : sampleVideo',
+				'event_label' : '샘플 비디오 영상 스킵 이벤트 발생'
+			});
+		}
+	}
+	var tag = document.createElement('script');
+
+	tag.src = "https://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	var player;
+	function onYouTubeIframeAPIReady() {
+		player = new YT.Player('player', {
+			height : '360',
+			width : '640',
+			videoId : 'kOHB85vDuow',
+			events : {
+				'onStateChange' : onPlayerStateChange
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<button id="IndexPageBtn">index 페이지</button>
+	<br>
+	<div id="player"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Analytics Test Index Page</title>
+<script src="javascript/text"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140783468-1' , {
+	  'page_title' : 'indexpage' ,
+	  'page_path' : '/index.html'
+  });
+</script>
+<script>
+	window.onload = function() {
+			document.getElementById("FirstPageBtn").addEventListener('click', function() {
+				location.href = "/firstPage.html";
+			});
+			
+			document.getElementById("SecondPageBtn").addEventListener('click', function() {
+				location.href = "/secondPage.html"
+			});
+	}
+</script>
+</head>
+<body>
+	<button id = "FirstPageBtn">1번 페이지</button> <br>
+	<button id = "SecondPageBtn">2번 페이지</button><br>
+</body>
+</html>
